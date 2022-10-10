@@ -1,7 +1,16 @@
-import { sum } from '../src';
+import { getClientIpFromXForwardedFor } from '../src/index';
+describe('geoip', () => {
+  const req = {
+    headers: {
+      'x-forwarded-for': '123.123.123.255',
+    },
+  };
 
-describe('blah', () => {
-  it('works', () => {
-    expect(sum(1, 1)).toEqual(2);
+
+  it('should do a thing', () => {
+    expect(getClientIpFromXForwardedFor).toBeDefined();
+    expect(getClientIpFromXForwardedFor).toBeInstanceOf(Function);
+    expect(getClientIpFromXForwardedFor(req)).toBeTruthy();
+
   });
 });
