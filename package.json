@@ -1,0 +1,52 @@
+{
+  "name": "ip-thingable",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "clean": "rm -rf node_modules dist package-lock.json"
+  },
+  "authors": [
+    "WolfieLeader",
+    "Ben Halverson"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "module": "dist/ip-thingable.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/ip-thingable.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/ip-thingable.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.1.0",
+    "@types/node": "^18.8.3",
+    "husky": "^8.0.1",
+    "size-limit": "^8.1.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^3.9.10"
+  }
+}
